@@ -1,0 +1,71 @@
+/* General body styles */
+body {
+    background-color: #f0f0f0;
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+}
+
+/* Container styles with flexbox to align boxes side by side */
+.container {
+    display: flex;
+    justify-content: center;
+    gap: 20px; /* Adds space between the boxes */
+    padding: 50px;
+    flex-wrap: wrap; /* Allows the boxes to wrap to the next line on smaller screens */
+}
+
+/* Styling for each box */
+.box {
+    background-color: white;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    width: 300px;
+    text-align: center;
+}
+
+/* Heading styles */
+h1 {
+    font-size: 24px;
+    margin-bottom: 20px;
+}
+
+h2 {
+    font-size: 20px;
+    margin-bottom: 15px;
+}
+
+/* Styling for the list inside the box */
+ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+/* Links inside the box */
+a {
+    display: block;
+    margin: 10px 0;
+    padding: 10px;
+    background-color: #e0e0e0;
+    border-radius: 5px;
+    text-decoration: none;
+    color: #333;
+}
+
+a:hover {
+    background-color: #d0d0d0;
+}
+
+/* Media query for smaller screens (mobile, tablet) */
+@media (max-width: 768px) {
+    .container {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .box {
+        width: 100%;
+        max-width: 400px; /* Limit box width on small screens */
+    }
+}
