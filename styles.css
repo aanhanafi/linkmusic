@@ -1,71 +1,106 @@
-/* General body styles */
+/* Cyberpunk-style CSS */
+
+@import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&display=swap');
+
 body {
-    background-color: #f0f0f0;
-    font-family: Arial, sans-serif;
+    background-color: #0d0d0d;
+    font-family: 'Orbitron', sans-serif;
     margin: 0;
     padding: 0;
+    color: #ffffff;
+    overflow-x: hidden;
+    animation: gradientAnimation 10s infinite alternate;
 }
 
-/* Container styles with flexbox to align boxes side by side */
+/* Animated Background Effect */
+body::before {
+    content: "";
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: radial-gradient(circle at bottom, #ff0080, #8000ff, #000);;
+    background-size: cover;
+    background-position: center;
+    z-index: -1;
+}
+/* Animasi gradasi yang berubah warna */
+@keyframes gradientAnimation {
+    0% {
+        background: radial-gradient(circle at bottom, #ff0080, #8000ff, #000);
+    }
+    50% {
+        background: radial-gradient(circle at bottom, #ff4d00, #ff0080, #000);
+    }
+    100% {
+        background: radial-gradient(circle at bottom, #8000ff, #4d00ff, #000);
+    }
+}
 .container {
     display: flex;
     justify-content: center;
-    gap: 20px; /* Adds space between the boxes */
+    gap: 20px;
     padding: 50px;
-    flex-wrap: wrap; /* Allows the boxes to wrap to the next line on smaller screens */
+    flex-wrap: wrap;
 }
 
-/* Styling for each box */
 .box {
-    background-color: white;
+    background: linear-gradient(135deg, rgba(255, 0, 150, 0.8), rgba(0, 255, 255, 0.8));
     padding: 20px;
-    border-radius: 10px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    border-radius: 15px;
+    box-shadow: 0 0 15px rgba(0, 255, 255, 0.5);
     width: 300px;
     text-align: center;
+    transition: transform 0.3s ease-in-out;
 }
 
-/* Heading styles */
-h1 {
-    font-size: 24px;
-    margin-bottom: 20px;
+.box:hover {
+    transform: scale(1.05);
+    box-shadow: 0 0 25px rgba(255, 0, 150, 0.8);
 }
 
-h2 {
-    font-size: 20px;
-    margin-bottom: 15px;
+h1, h2 {
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    color: #fff;
+    text-shadow: 0 0 10px rgba(255, 0, 255, 0.7);
 }
 
-/* Styling for the list inside the box */
 ul {
     list-style-type: none;
     padding: 0;
 }
 
-/* Links inside the box */
 a {
     display: block;
     margin: 10px 0;
-    padding: 10px;
-    background-color: #e0e0e0;
-    border-radius: 5px;
+    padding: 12px;
+    background: rgba(0, 0, 0, 0.6);
+    border: 2px solid #ff00ff;
+    border-radius: 8px;
     text-decoration: none;
-    color: #333;
+    color: #00ffff;
+    text-transform: uppercase;
+    font-weight: bold;
+    transition: all 0.3s ease;
 }
 
 a:hover {
-    background-color: #d0d0d0;
+    background: #ff00ff;
+    color: #000;
+    border-color: #00ffff;
+    box-shadow: 0 0 15px #00ffff;
 }
 
-/* Media query for smaller screens (mobile, tablet) */
+/* Media Query for Mobile */
 @media (max-width: 768px) {
     .container {
         flex-direction: column;
         align-items: center;
     }
-
     .box {
-        width: 100%;
-        max-width: 400px; /* Limit box width on small screens */
+        width: 90%;
+        max-width: 400px;
     }
 }
